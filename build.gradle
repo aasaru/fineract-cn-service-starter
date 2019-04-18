@@ -126,7 +126,7 @@ artifactory {
         }
 
         defaults {
-            publications ('api', 'service', 'bootService') // add projectnamePublification here
+            publications ('serviceStarterPublication')
         }
     }
 }

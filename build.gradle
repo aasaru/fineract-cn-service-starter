@@ -21,7 +21,7 @@ buildscript {
     }
 
     dependencies {
-        classpath ("io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE")
+        classpath 'io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE'
     }
 }
 
@@ -29,6 +29,10 @@ plugins {
     id 'com.github.hierynomus.license' version '0.13.1'
     id("org.nosphere.apache.rat") version "0.3.1"
     id "com.jfrog.artifactory" version "4.9.5"
+    id "io.spring.dependency-management" version "1.0.8.RELEASE"
+    id 'maven-publish'
+    id 'java'
+    id 'idea'
 }
 
 group 'org.apache.fineract.cn'
@@ -42,11 +46,6 @@ ext.versions = [
         springcontext   : '4.3.3.RELEASE',
         activeMQ        : '5.13.2',
 ]
-
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'io.spring.dependency-management'
-apply plugin: 'maven-publish'
 
 tasks.withType(JavaCompile) {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -88,7 +87,7 @@ dependencies {
 }
 
 jar {
-    from sourceSets.main.allSource
+    from sourceSets.main.java
 }
 
 license {
